@@ -1,0 +1,2 @@
+# angular_template
+搭建一个完整的angular项目前端架构
