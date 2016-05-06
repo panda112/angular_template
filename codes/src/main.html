@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>angular template</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <div data-ng-app="angularTemplate">
+    	<div ng-controller="testCtrl">
+    		{{firstName}}
+    	</div>
+        <div ng-bind="false">false</div>
+        <div ng-if="true">true</div>
+        <p>名字 :
+            <input type="text" ng-model="name">
+        </p>
+        <h1>Hello {{name}}</h1>
+    </div>
+
+    <script src="/config.js"></script>
+</body>
+
+</html>
