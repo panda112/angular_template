@@ -4,23 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>angular template</title>
-    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="/libs/angular/angular.min.js"></script>
+    <script src="/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 </head>
 
 <body>
-    <div data-ng-app="angularTemplate">
-    	<div ng-controller="testCtrl">
-    		{{firstName}}
-    	</div>
-        <div ng-bind="false">false</div>
-        <div ng-if="true">true</div>
-        <p>名字 :
-            <input type="text" ng-model="name">
-        </p>
-        <h1>Hello {{name}}</h1>
+    <div data-ng-app="angularTemplate" ng-controller="myCtrl">
+        {{ firstName + " " + lastName }}
+        <div ui-view></div>
+        <!-- We'll also add some navigation: -->
+        <a ui-sref="state1">State 1</a>
+        <a ui-sref="state">State 2</a>
     </div>
-
-    <script src="/config.js"></script>
+    <script src="/main.js"></script>
 </body>
 
 </html>
