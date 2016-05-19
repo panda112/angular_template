@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="Chan">
 
 <head>
     <meta charset="UTF-8">
-    <title>angular template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Expires" CONTENT="0">
+    <title data-ng-bind="webTitle"></title>
     <script src="/libs/angular/angular.min.js"></script>
     <script src="/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 </head>
 
 <body>
-    <div data-ng-app="angularTemplate" ng-controller="myCtrl">
-        {{ firstName + " " + lastName }}
+    <div>
         <div ui-view></div>
         <!-- We'll also add some navigation: -->
         <a ui-sref="state1">State 1</a>
         <a ui-sref="state">State 2</a>
+        <a ui-sref="form_validation">form_validation</a>
     </div>
-    <script src="/router.js"></script>
+    <script src="/config/config.dependencies.js"></script>
+    <script src="/config/config.router.js"></script>
 </body>
 
 </html>
