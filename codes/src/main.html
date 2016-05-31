@@ -10,18 +10,19 @@
     <title data-ng-bind="webTitle"></title>
     <script src="/libs/angular/angular.min.js"></script>
     <script src="/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/libs/oclazyload/dist/ocLazyLoad.min.js"></script>
 </head>
 
 <body>
     <div>
         <div ui-view></div>
         <!-- We'll also add some navigation: -->
-        <a ui-sref="state1">State 1</a>
+        <!-- <a ui-sref="state1">State 1</a>
         <a ui-sref="state">State 2</a>
-        <a ui-sref="form_validation">form_validation</a>
+        <a ui-sref="form_validation">form_validation</a> -->
     </div>
-    <script src="/config/config.dependencies.js"></script>
-    <script src="/config/config.router.js"></script>
+    <script src="/config/dependencies.js"></script>
+    <script src="/config/router.js"></script>
+    <script src="/components/common/welcome/welcomeCtrl.js"></script>
 </body>
-
 </html>
