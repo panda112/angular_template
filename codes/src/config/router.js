@@ -31,8 +31,8 @@ chan.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$co
             })
             .state("form_validation", {
                 url: "/form_validation",
-                templateUrl: "/modules/form_validation/views/form_validation.html"
-                    // resolve: loadSequence("formValidationCtrl")
+                templateUrl: getTemplateUrl("form_validation"),
+                resolve: loadSequence("formValidationCtrl")
             })
             .state('state1', { //跳转时，ui-sref的属性值，ui-sref作用如同href，如：ui-sref="state1.list"
                 url: "/state1", //url值

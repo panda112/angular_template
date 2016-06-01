@@ -29,7 +29,7 @@ chan.constant("JS_REQUIRES", {
         // 'touchspin-plugin': ['../bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js', '../bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css'],
 
         //*** Controllers
-        // "formValidationCtrl": "/modules/form_validation/js/formValidationCtrl.js",
+        "formValidationCtrl": "/modules/form_validation/formValidationCtrl.js",
         "welcomeCtrl": "/modules/welcome/welcomeCtrl.js"
 
         
