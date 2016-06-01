@@ -10,7 +10,7 @@
 //     "tablet": 768,
 //     "mobile": 480
 // });
-Chan.constant("JS_REQUIRES", {
+chan.constant("JS_REQUIRES", {
     //*** Scripts
     scripts: {
         //*** Javascript Plugins
@@ -29,8 +29,8 @@ Chan.constant("JS_REQUIRES", {
         // 'touchspin-plugin': ['../bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js', '../bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css'],
 
         //*** Controllers
-        // "formValidationCtrl": "/modules/form_validation/js/formValidationCtrl.js",
-        "welcomeCtrl": "/components/common/welcome/welcomeCtrl.js"
+        "formValidationCtrl": "/modules/form_validation/formValidationCtrl.js",
+        "welcomeCtrl": "/modules/welcome/welcomeCtrl.js"
 
         
         //*** Filters
@@ -110,3 +110,15 @@ Chan.constant("JS_REQUIRES", {
     // }
     ]
 });
+// Chan.config(["$ocLazyLoadProvider", function($ocLazyLoadProvider) {
+//   $ocLazyLoadProvider.config({
+//     debug: true,
+//     events: true,
+//     modules: [
+//     {
+//         name: "welcomeCtrl",
+//         files: "/components/common/welcome/welcomeCtrl.js"
+//     }
+//     ]
+//   });
+// }]);

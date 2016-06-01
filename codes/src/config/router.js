@@ -5,26 +5,34 @@
 /**
  * 路由配置
  */
-Chan.config(["$stateProvider", "$urlRouterProvider", "$ocLazyLoadProvider",
-    function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+chan.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "$ocLazyLoadProvider", "JS_REQUIRES",
+    function($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $ocLazyLoadProvider, jsRequires) {
+        chan.controller = $controllerProvider.register;
+        chan.directive = $compileProvider.directive;
+        chan.filter = $filterProvider.register;
+        chan.factory = $provide.factory;
+        chan.service = $provide.service;
+        chan.constant = $provide.constant;
+        chan.value = $provide.value;
+
         // LAZY MODULES
-        // $ocLazyLoadProvider.config({
-        //     debug: false,
-        //     events: true,
-        //     modules: jsRequires.modules
-        // });
+        $ocLazyLoadProvider.config({
+            debug: false,
+            events: true,
+            modules: jsRequires.modules
+        });
 
         //设置url对应的页面及页面对应的状态名称
         $stateProvider
             .state("welcome", { //跳转时，ui-sref的属性值，ui-sref作用如同href，如：ui-sref="state1.list"
                 url: "/welcome", //url值
-                templateUrl: "/components/common/welcome/views/welcome.html" //模板路径
-                // resolve: loadSequence("welcome")
+                templateUrl: getTemplateUrl("welcome"), //模板路径
+                resolve: loadSequence("welcomeCtrl")
             })
             .state("form_validation", {
                 url: "/form_validation",
-                templateUrl: "/modules/form_validation/views/form_validation.html"
-                    // resolve: loadSequence("formValidationCtrl")
+                templateUrl: getTemplateUrl("form_validation"),
+                resolve: loadSequence("formValidationCtrl")
             })
             .state('state1', { //跳转时，ui-sref的属性值，ui-sref作用如同href，如：ui-sref="state1.list"
                 url: "/state1", //url值
@@ -52,50 +60,55 @@ Chan.config(["$stateProvider", "$urlRouterProvider", "$ocLazyLoadProvider",
         //当url不存在时，跳转到welcome
         $urlRouterProvider.otherwise("/welcome");
 
+        function getTemplateUrl(fileName){
+            var templateUrl = "/modules/" + fileName + "/views/" + fileName + ".html";
+            return templateUrl;
+        }
+
         // Generates a resolve object previously configured in constant.JS_REQUIRES (config.constant.js)
-        // function loadSequence() {
-        //     var _args = arguments;
-        //     return {
-        //         deps: ["$ocLazyLoad", "$q",
-        //             function($ocLL, $q) {
-        //                 var promise = $q.when(1);
+        function loadSequence() {
+            var _args = arguments;
+            return {
+                deps: ["$ocLazyLoad", "$q",
+                    function($ocLL, $q) {
+                        var promise = $q.when(1);
 
-        //                 for (var i = 0, len = _args.length; i < len; i++) {
-        //                     promise = promiseThen(_args[i]);
-        //                 }
+                        for (var i = 0, len = _args.length; i < len; i++) {
+                            promise = promiseThen(_args[i]);
+                        }
 
-        //                 return promise;
+                        return promise;
 
-        //                 function promiseThen(_arg) {
-        //                     if (typeof _arg == "function") {
-        //                         return promise.then(_arg);
-        //                     } else {
-        //                         return promise.then(function() {
-        //                             var nowLoad = requiredData(_arg);
+                        function promiseThen(_arg) {
+                            if (typeof _arg == "function") {
+                                return promise.then(_arg);
+                            } else {
+                                return promise.then(function() {
+                                    var nowLoad = requiredData(_arg);
 
-        //                             if (!nowLoad) {
-        //                                 return $.error("Route resolve: Bad resource name [" + _arg + "]");
-        //                             }
+                                    if (!nowLoad) {
+                                        return $.error("Route resolve: Bad resource name [" + _arg + "]");
+                                    }
 
-        //                             return $ocLL.load(nowLoad);
-        //                         });
-        //                     }
-        //                 }
+                                    return $ocLL.load(nowLoad);
+                                });
+                            }
+                        }
 
-        //                 function requiredData(name) {
-        //                     if (jsRequires.modules) {
-        //                         for (var m in jsRequires.modules) {
-        //                             if (jsRequires.modules[m].name && jsRequires.modules[m].name === name) {
-        //                                 return jsRequires.modules[m];
-        //                             }
-        //                         }
-        //                     }
+                        function requiredData(name) {
+                            if (jsRequires.modules) {
+                                for (var m in jsRequires.modules) {
+                                    if (jsRequires.modules[m].name && jsRequires.modules[m].name === name) {
+                                        return jsRequires.modules[m];
+                                    }
+                                }
+                            }
 
-        //                     return jsRequires.scripts && jsRequires.scripts[name];
-        //                 }
-        //             }
-        //         ]
-        //     };
-        // }
+                            return jsRequires.scripts && jsRequires.scripts[name];
+                        }
+                    }
+                ]
+            };
+        }
     }
 ]);

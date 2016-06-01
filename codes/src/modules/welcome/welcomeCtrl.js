@@ -12,4 +12,4 @@
         	alert(newVal);
         });
     }]);
-})(Chan);
+})(chan);
