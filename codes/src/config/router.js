@@ -19,7 +19,10 @@ Chan.config(["$stateProvider", "$urlRouterProvider", "$ocLazyLoadProvider",
             .state("welcome", { //跳转时，ui-sref的属性值，ui-sref作用如同href，如：ui-sref="state1.list"
                 url: "/welcome", //url值
                 templateUrl: "/components/common/welcome/views/welcome.html" //模板路径
-                // resolve: loadSequence("welcome")
+                // controller: "welcomeCtrl"
+                // resolve: function(){
+                //     loadController("/components/common/welcome/welcomeCtrl.js");
+                // }
             })
             .state("form_validation", {
                 url: "/form_validation",
@@ -51,6 +54,10 @@ Chan.config(["$stateProvider", "$urlRouterProvider", "$ocLazyLoadProvider",
 
         //当url不存在时，跳转到welcome
         $urlRouterProvider.otherwise("/welcome");
+
+        function loadController(module){
+            $ocLazyLoad.load(module);
+        }
 
         // Generates a resolve object previously configured in constant.JS_REQUIRES (config.constant.js)
         // function loadSequence() {
@@ -99,3 +106,7 @@ Chan.config(["$stateProvider", "$urlRouterProvider", "$ocLazyLoadProvider",
         // }
     }
 ]);
+
+
+// Chan.config(['$locationProvider', '$urlRouterProvider', 
+//     function($locationProvider, $urlRouterProvider) { $urlRouterProvider.otherwise("/blog"); }]);
