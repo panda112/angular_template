@@ -1,0 +1,22 @@
+{
+  "name": "chan",
+  "version": "1.0.0",
+  "description": "devDependencies for angular_template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhengJunChan/angular_template.git"
+  },
+  "author": "Chan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhengJunChan/angular_template/issues"
+  },
+  "homepage": "https://github.com/ZhengJunChan/angular_template#readme",
+  "devDependencies": {
+    "gulp-sass": "^2.3.1"
+  }
+}
