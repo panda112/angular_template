@@ -1,8 +1,108 @@
-<div ng-controller="welcomeCtrl">
+<!-- <div ng-controller="welcomeCtrl">
 <a ui-sref="form_validation">State 1</a>
 	hahahhaha {{haha}}
 	<div ng-click="testss()">fjieofjie</div>
 	<input type="text" ng-model="haha" id="testInput">
 	<p id="testText"></p>
-	<!-- {{eg}} -->
+</div> -->
+<div ng-controller="welcomeCtrl">
+    <audio src="/modules/welcome/radio/121353631.mp3" id="audio" controls>
+        <p>你的浏览器不支持audio标签</p>
+    </audio>
+    <style type="text/css">
+    .small {
+        width: 15px;
+        height: 10px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+        color: #76c628;
+    }
+    
+    .middle {
+        width: 20px;
+        height: 20px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+        margin-left: -22px;
+        animation: show2 3s ease-in-out infinite;
+        opacity: 1;
+        color: #76c628;
+    }
+    
+    @keyframes show2 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    .cricleplay {
+        width: 100%;
+        background: #9eea6a;
+        display: inline-block;
+    }
+    
+    .large {
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+        margin-left: -32px;
+        animation: show3 3s ease-in-out infinite;
+        opacity: 1;
+        color: #76c628;
+    }
+    
+    @keyframes show3 {
+        0% {
+            opacity: 0;
+        }
+        60% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    </style>
+    <!-- <div class="cricleplay" v-on:click="audio" status="stop" no="1" id="audio" >
+        <div class="small"></div>
+        <div class="middle stopanimate"></div>
+        <div class="large stopanimate"></div>
+    </div> -->
+    <div class="cricleplay" status="stop" no="1" ng-click="player().play()">
+        <div class="small"></div>
+        <div class="middle stopanimate"></div>
+        <div class="large stopanimate"></div>
+    </div>
+    <div>
+    {{play().endTime}}
+  <button onclick="document.getElementById('audio').play()">播放声音</button>
+  <button onclick="document.getElementById('audio').close()">暂停声音</button>
+  <button onclick="document.getElementById('audio').volume+=0.1">提高音量</button>
+  <button onclick="document.getElementById('audio').volume-=0.1">降低音量</button>
+</div>
 </div>

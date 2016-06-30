@@ -1,3 +1,246 @@
-<div ng-controller="formCtrl">
+<!-- <div ng-controller="formCtrl">
 	{{fer}}
+</div> -->
+<!-- 举报列表 -->
+<div>
+    <div class="panel panel-default font12">
+        <div class="panel-heading"><strong>搜索</strong></div>
+        <div class="panel-body">
+            <!-- <form class="form-inline vcy-from-search" role="form" action=""> -->
+            <!-- <input type="hidden" name="issearch" value="1"> -->
+            <table class="table-search">
+                <tbody>
+                    <tr>
+                        <td class="i-tt text-nowrap">工单编号</td>
+                        <td>
+                            <input type="text" class="form-control form-small" placeholder="输入工单编号" maxlength="30">
+                        </td>
+                        <td class="i-tt text-nowrap">民警姓名</td>
+                        <td>
+                            <input type="text" class="form-control form-small" placeholder="输入民警姓名" maxlength="30">
+                        </td>
+                        <td class="text-right">
+                            <label class="vcy-label-none">举报状态</label>
+                        </td>
+                        <td>
+                            <select name="type" class="form-control form-small">
+                                <option value="-1" selected="">请选择</option>
+                                <option value="0">文章内容</option>
+                                <option value="1">音图内容</option>
+                                <option value="2">视频内容</option>
+                            </select>
+                        </td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td class="i-tt text-nowrap">工单编号</td>
+                        <td>
+                            <input type="text" class="form-control form-small" name="title" placeholder="输入工单编号" maxlength="30">
+                        </td>
+                        <td class="i-tt text-nowrap">民警姓名</td>
+                        <td>
+                            <input type="text" class="form-control form-small" name="m_username" placeholder="输入民警姓名" maxlength="30">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-info form-small form-small-btn margin-left-12"><i class="fa fa-search"></i> 搜索</button>
+                        </td>
+                        <td>
+                            <a href="" role="button" class="btn btn-default form-small form-small-btn">全部记录</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- </form> -->
+        </div>
+    </div>
+    <div class="table-light">
+        <div class="table-header">
+            <div class="table-caption font12">
+                记录列表
+            </div>
+        </div>
+        <form class="form-horizontal">
+            <!-- <input type="hidden" name="formhash" value="07587e8bfd20160531160429s3O2eIch"> -->
+            <table class="table table-striped table-hover table-bordered font12">
+                <!--  <colgroup>
+                <col class="t-col-5">
+                <col class="t-col-15">
+                <col class="t-col-10">
+                <col class="t-col-10">
+                <col class="t-col-10">
+                <col class="t-col-5">
+                <col class="t-col-5">
+                <col class="t-col-5">
+                <col class="t-col-5">
+                <col class="t-col-15">
+                <col class="t-col-15">
+            </colgroup> -->
+                <thead>
+                    <tr>
+                        <th>工单编号</th>
+                        <th>预约状态</th>
+                        <th>举报内容</th>
+                        <th>姓名</th>
+                        <th>手机号</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td class="text-right vcy-page" poler-pagination="polerPaginationCtrl" download="getPage(page)" colspan="6"></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>文章内容</td>
+                        <td>文章内容</td>
+                        <td>文章内容</td>
+                        <td>文章内容</td>
+                        <td>文章内容</td>
+                        <td>
+                            <a href="">查看详情</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+<!-- 举报详情 -->
+<div>
+    <div class="panel panel-default font12">
+        <div class="panel-body">
+            <dl class="dl-horizontal" style="margin-bottom:0">
+                <dt>预约状态</dt>
+                <dd>
+                    <strong class="label label-primary font12">已指派</strong>
+                </dd>
+            </dl>
+            <dl>
+                <dt>举报信息</dt>
+                <dd>
+                    <dl class="dl-horizontal">
+                        <dt>订单编号</dt>
+                        <dd>...</dd>
+                        <dt>内容说明</dt>
+                        <dd>...</dd>
+                        <dt>语音说明</dt>
+                        <dd>...</dd>
+                        <dt>举报证据</dt>
+                        <dd>...</dd>
+                    </dl>
+                </dd>
+                <dt>申请表信息</dt>
+                <dd>
+                    <dl class="dl-horizontal">
+                        <dt>姓名</dt>
+                        <dd>...</dd>
+                        <dt>联系方式</dt>
+                        <dd>...</dd>
+                        <dt>身份证号</dt>
+                        <dd>...</dd>
+                        <dt>家庭住址</dt>
+                        <dd>...</dd>
+                    </dl>
+                </dd>
+                <dt>举报进度表</dt>
+                <dd>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>角色</th>
+                                <th>姓名</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+            <a href="javascript:void()" onclick="history.go(-1)" class="btn btn-default">返回</a>
+        </div>
+    </div>
+</div>
+<!-- 举报设置  组件查看 投票设置：http://wq.vchangyi.com/zhoutao/admincp/office/cnvote/issue/pluginid/40/-->
+<div>
+    <div class="panel panel-default font12">
+        <div class="panel-body">
+            <div class="profile-row">
+                <form class="form-horizontal font12" role="form" action="" method="post">
+                    <input type="hidden" name="formhash" value="526ba897d620160531183030a69wZeZ0">
+                    <input type="hidden" name="action" value="">
+                    <span id="m_uid_choose1" style="display: none;"></span>
+                    <span id="cd_id_choose1" style="display: none;"></span>
+                    <div id="user_dep_container">
+                        <div class="row">
+                            <label class="col-sm-2 text-right padding-sm">举报审核人：</label>
+                            <div class="col-sm-9 ">
+                                <input type="hidden" class="form-small" id="is_all" name="is_all" value="1">
+                                <button type="button" class="btn btn-primary" id="add_all_btn">全公司</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn" id="add_specified_btn">指定对象</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                        <div id="issue_sign" class="row" style="display: none;">
+                            <div class="col-sm-2 col-md-offset-1 text-right padding-sm" style="min-height: 30px; line-height: 30px;">
+                                选择部门:
+                            </div>
+                            <div class="row">
+                                <div id="deps_container2" class="col-sm-7" style="line-height: 50px;">
+                                    <!-- angular 选部门组件 begin -->
+                                    <button type="button" onclick="selectDepartment2()" class="btn btn-defaul">选择部门</button>
+                                    <!-- angular 选部门组件 end -->
+                                    <pre id="dep_deafult_data2" style="margin-top: 10px; display: none; font-size: 12px; letter-spacing: 1px; background-color: #FAFAFA;"></pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2 col-md-offset-1  text-right padding-sm" style="min-height: 30px; line-height: 30px;">
+                                    选择人员:
+                                </div>
+                                <div id="users_container2" class="col-sm-7" style="line-height: 50px;">
+                                    <!-- angular 选人组件 begin -->
+                                    <button type="button" onclick="SelectPerson2()" class="btn btn-defaul">选择人员</button>
+                                    <pre id="m_uid_deafult_data2" style="margin-top: 10px; display: none; font-size: 12px; letter-spacing: 1px; background-color: #FAFAFA;"></pre>
+                                    <!-- angular 选人组件 end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-9">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary  col-md-9" id="draft_btn">保存</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn  col-md-9" id="publish_btn">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
